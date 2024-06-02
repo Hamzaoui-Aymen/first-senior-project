@@ -1,8 +1,10 @@
 import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import SingleProduct from './SingleProduct';
+import Category from '../component/category';
 
-function Products({ data, switchView, addToCart }) {
+function Products({ prod=[], switchView, addToCart }) {
   const navigate = useNavigate();
   const sliderRef = useRef(null);
   const [isGridView, setIsGridView] = useState(false);
@@ -25,13 +27,13 @@ function Products({ data, switchView, addToCart }) {
         <>
           <button className="slider-button left" onClick={scrollLeft}>&lt;</button>
           <div className="slider" ref={sliderRef}>
-            {data.map((e) => (
+            {prod.map((e) => (
               <div className="product-card" key={e.id}>
                 <img
                   src={e.picture}
                   alt="Product"
                   className="product-image"
-                  onClick={() => navigate(`/oneProduct/${e.id}`)}
+                  onClick={() => {navigate(`/SingleProduct/${e.id}`),<SingleProduct prod={e}/>}}
                 />
                 <h2 className="product-name">{e.name}</h2>
                 <p className="card-item-price">Price: ${e.price}</p>
@@ -52,7 +54,7 @@ function Products({ data, switchView, addToCart }) {
         </>
       ) : (
         <div className="grid-view">
-          {data.map((e) => (
+          {prod.map((e) => (
             <div className="product-card" key={e.id}>
               <img
                 src={e.picture}
@@ -81,12 +83,13 @@ function Products({ data, switchView, addToCart }) {
           View All Products
         </button>
       )}
+      <div><Category/></div>
     </div>
   );
 }
 
 Products.propTypes = {
-  data: PropTypes.array.isRequired,
+  prod: PropTypes.array.isRequired,
   switchView: PropTypes.func,
   addToCart: PropTypes.func,
 };

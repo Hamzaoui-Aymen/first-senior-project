@@ -43,14 +43,14 @@ function SingleProduct() {
         <div className="product-options">
           <div className="colors">
             <span>Colours:</span>
-            {/* Assuming you have color options */}
+            
             {product.colors && product.colors.map((color, index) => (
               <button key={index} className="color-option" style={{ backgroundColor: color }}></button>
             ))}
           </div>
           <div className="sizes">
             <span>Size:</span>
-            {/* Assuming you have size options */}
+            
             {product.sizes && product.sizes.map((size, index) => (
               <button key={index} className="size-option">{size}</button>
             ))}

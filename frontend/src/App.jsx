@@ -1,21 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Search from './componentssFayrouz/Search';
+import { Link, useNavigate, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import axios from 'axios';
+import Products from './components/Products';
+import Search from './componentssFayrouz/Search';
 import Cart from './componentssFayrouz/Cart';
-import Footer from './componentssFayrouz/Footer';
-import './App.css';
 import { VscHeart } from 'react-icons/vsc';
 import { CgProfile } from 'react-icons/cg';
 import { CiLogout } from 'react-icons/ci';
 import { RiRedPacketLine, RiShoppingCart2Line } from 'react-icons/ri';
-import Products from './components/Products';
-import SingleProduct from './components/SingleProduct';
 
+import './App.css';
 
 const App = () => {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const [menuView, setMenuView] = useState(false);
   const [view, setView] = useState('');
   const [data, setData] = useState([]);
@@ -25,6 +22,7 @@ const App = () => {
   const getAllProducts = () => {
     axios.get('http://localhost:4000/apii/getAll')
       .then((res) => {
+        console.log("test:", res.data);
         setData(res.data);
       })
       .catch((error) => {
@@ -66,7 +64,7 @@ const App = () => {
     axios.delete(`http://localhost:4000/api/cart/${id}`)
       .then(() => {
         console.log('Item deleted from cart');
-        fetchCart(); // Refresh the cart data
+        fetchCart();
       })
       .catch((error) => console.error('Error deleting item from cart:', error));
   };
@@ -80,10 +78,11 @@ const App = () => {
     <div className="App">
       <nav className="navbar">
         <ul className="navbar-links">
-          <li className="navbar-item"><Link to="/">Home</Link></li>
+          <li className="navbar-item"><Link to="/" prod={data} > Home</Link></li>
           <li className="navbar-item"><Link to="/Contact">Contact</Link></li>
           <li className="navbar-item"><Link to="/About">About</Link></li>
           <li className="navbar-item"><Link to="/Signup">Sign Up</Link></li>
+          
         </ul>
         <div className="navbar-search">
           <Search data={data} setData={setData} />
@@ -100,17 +99,18 @@ const App = () => {
 
       {menuView && (
         <div className="menu">
-          <span className="menu-item" onClick={() =>navigate("/EditProfile") }><CgProfile /> Manage Account</span>
-          <span className="menu-item" onClick={() =>navigate("/Cart") }><RiRedPacketLine /> My Order</span>
-          <span className="menu-item" onClick={() =>navigate("/signup") }><CiLogout /> Logout</span>
+          <span className="menu-item" onClick={() => navigate("/EditProfile")}><CgProfile /> Manage Account</span>
+          <span className="menu-item" onClick={() => navigate("/Cart")}><RiRedPacketLine /> My Order</span>
+          <span className="menu-item" onClick={() => navigate("/signup")}><CiLogout /> Logout</span>
         </div>
       )}
       {view === 'cart' && <Cart deleteCart={deleteCart} cart={cart} />}
+      
+      <Products prod={data} switchView={switchView} addToCart={(item) => setCart([...cart, item])} />
+      
+      {/* <Footer /> */}
     </div>
   );
 };
 
 export default App;
-
-
-

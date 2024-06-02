@@ -5,7 +5,7 @@ import { CiDollar } from "react-icons/ci";
 import { RiRedPacketLine } from "react-icons/ri";
 import { FaSackDollar } from "react-icons/fa6";
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
-import Footer from '../Footer';
+import Footer from '../componentssFayrouz/Footer';
 
 function About() {
     const styles = `

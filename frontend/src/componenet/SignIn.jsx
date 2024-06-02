@@ -28,30 +28,37 @@ const SignIn = () => {
   return (
     
     <div className="signin-container">
-        <img className='img' src="https://img.freepik.com/photos-premium/panier-achat-telephone-portable-vierge-fond-rose-pastel-commerce-electronique-achat-ligne-commerce-ligne-arriere-plan-technologie-journee-magasinage-vendredi-noir-reseau-espace-copie-maquette_146482-2149.jpg" alt="" />
+    <img className='img' src="https://img.freepik.com/photos-premium/panier-achat-telephone-portable-vierge-fond-rose-pastel-commerce-electronique-achat-ligne-commerce-ligne-arriere-plan-technologie-journee-magasinage-vendredi-noir-reseau-espace-copie-maquette_146482-2149.jpg" alt="" />
       <form className="signin-form" onSubmit={handleSubmit}>
         <h1>Sign In</h1>
+        <div className="coolinput"></div>
+        
+       
+        
         <label htmlFor="email">Email Address</label>
         <input
           id="email"
           type="email"
-          value={email}
+          placeholder="Write here..."
+          name="email"
+          className="input"
           onChange={(e) => setEmail(e.target.value)}
         />
-
+        
         <label htmlFor="password">Password</label>
         <input
           id="password"
           type="password"
-          value={password}
+          placeholder="Write here..."
+          name="password"
+          className="input"
           onChange={(e) => setPassword(e.target.value)}
         />
 
         <button type="submit">Sign In</button>
-        <a className="signup-link" onClick={() => navigate('/SignUp')}>Sign Up</a>
+        <h5>Already have an account?</h5>
+        <a className="signin-link" onClick={() => navigate('/SignUp ')}>Sign Up</a>
       </form>
-
-    
     </div>
   );
 };
