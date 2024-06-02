@@ -1,0 +1,91 @@
+.footer {
+    background-color: #282727;
+    color: #fff;
+    padding: 10px 150px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1  rem;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    /* flex-wrap: wrap; */
+}
+
+.footer-section {
+    flex: 1 1 70px;
+    margin: 0 120px;
+}
+
+.footer-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    justify-content: space-evenly;
+}
+
+.footer-section p,
+.footer-section address {
+    font-size: 1.1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section li {
+    margin-bottom: 10px;
+}
+
+.subscribe-form {
+    display: flex;
+}
+
+.subscribe-input {
+    flex: 5;
+    padding: 1px;
+    font-size: 20px;
+}
+
+.subscribe-button {
+    background: none;
+    border: none;
+    color: #111111;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.app-links img {
+    width: 200px;
+    margin: 90px 0;
+}
+
+.social-icons {
+    display: flex;
+    width:10px;
+    margin:10px;
+}
+
+.social-icons a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 35px;
+    font-size:1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #7c1c1c;
+}
+
+.footer-bottom {
+    background-color: #222;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.footer-bottom p {
+    /* margin: 0; */
+    font-size: 0.7rem;
+    color: #ffffff;
+}
