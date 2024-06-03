@@ -139,11 +139,14 @@ function About() {
 
     .stats-container {
         display: flex;
-        justify-content: space-between;
-        width: 100%;
-        max-width: 1200px;
-        margin-top: 20px;
-        flex-wrap: nowrap;
+    justify-content: space-around;
+    width: 70%;
+    max-width: 1000px;
+    max-height: 400px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-left: 400px;
+    flex-wrap: nowrap;
     }
 
     .stat-box {
@@ -183,7 +186,7 @@ function About() {
                 <div className="about-content">
                     <div className="about-text">
                         <h2>Our Story</h2>
-                        <p>
+                        <p className='pp'>
                             Launched in 2024, Exclusive is North Africa's premier online shopping <br /> marketplace with an active presence in Tunis. Supported <br /> by a wide range of tailored marketing, data, and service solutions. <br /> Exclusive has 10,500 sellers and 300 brands and serves 3 million <br /> customers across the region. <br />    <br />Exclusive has more than 1 million products to offer, growing at a very fast pace. Exclusive offers a diverse assortment in categories ranging from consumer electronics to fashion and lifestyle products.
                         </p>
                     </div>

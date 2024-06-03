@@ -1,5 +1,3 @@
-
-
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -16,12 +14,11 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { useNavigate } from 'react-router-dom';
 import AddProduct from './AddProduct';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-// const pages = ['Products', 'Pricing', 'Blog'];
+
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const SideBar=()=>{
+ 
     const navgate=useNavigate()
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -73,7 +70,7 @@ const SideBar=()=>{
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-              // onClick={handleOpenNavMenu}
+             
               color="inherit"
             >
               <MenuIcon />
@@ -142,28 +139,7 @@ const SideBar=()=>{
                 
                 onClick={()=>{navgate("/addprod");handleClickOpen()}}
                 sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                 {/* <Button variant="outlined" onClick={handleClickOpen}>
-        Open 
-      </Button>
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        PaperProps={{
-          component: 'form',
-          onSubmit: (event) => {
-            event.preventDefault();
-            const formData = new FormData(event.currentTarget);
-            const formJson = Object.fromEntries(formData.entries());
-            const email = formJson.email;
-            console.log(email);
-            handleClose();
-          },
-        }}
-      >
-      
-                </Dialog> */}
-                add product
+              >         add product
               </Button>
                 <AddProduct  open={open} handleClickOpen={handleClickOpen} handleClose={handleClose}/>
              

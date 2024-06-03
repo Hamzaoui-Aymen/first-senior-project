@@ -1,19 +1,23 @@
-/* App.css */
-
 .App {
   font-family: Arial, sans-serif;
 }
 
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 70px ,35px;
+  height: 90px;
   background-color: rgb(255, 255, 255);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1000px;
-}
+  margin-bottom: 20px;
 
+}
+.img{
+  
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;}
 .navbar-links {
   display: flex;
   list-style: none;
@@ -40,36 +44,38 @@
   border-bottom: 2px solid black;
 }
 
-.navbar-search {
-  display: flex;
-  align-items: center;
-  background-color: #f1f1f1;
-  border-radius: 3px;
-  padding: 0px 50px;
-  flex-grow: 1;
-  margin: 10 50px;
-  height: 5%;
-  max-width: 280px;
-
-  
+.search {
+  position: relative;
+  display: block;
+  padding: 10px 8px;
+  padding-top: 10px;
+  padding-right: 8px;
+  padding-bottom: 15px;
+  padding-left: 8px;
+  left: 290px;
+  bottom: 7px;
 }
 
+
+
 .navbar-search input {
-  border: none;
-  background: none;
-  background-color: #f1f1f1;
-  outline: none;
-  padding: 5px;
-  font-size: 1.5rem;
-  width: 100%;
+  position: relative;
+  display: block;
+  padding: 10px;
+  padding-top: 10px;
+  padding-right: 107px;
+  padding-bottom: 15px;
+  padding-left: 8px;
+  top: 38px;
+
 }
 
 .search-icon {
   color: rgb(83, 7, 7);
   font-size: 1rem;
-  
 
-  
+
+
 
 }
 
@@ -127,4 +133,7 @@
 
 .menu-item:hover {
   background-color: #f1f1f1;
+}
+.pp{
+  color: black;
 }

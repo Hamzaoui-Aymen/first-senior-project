@@ -12,12 +12,12 @@ import Phones from './component/Phones';
 import Smartwatch from './component/SmartWatch';
 import SignIn from './componenet/SignIn';
 import SignUp from './componenet/SignUp';
-
 import About from '../src/componentssFayrouz/About';
 import Cart from '../src/componentssFayrouz/Cart';
 import Products from './components/Products';
 import SingleProduct from './components/SingleProduct';
 import Footer from './componentssFayrouz/Footer';
+import Contact from './componentssFayrouz/Contact';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -32,10 +32,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/headphones" element={<Headphones />} />
         <Route path="/phones" element={<Phones />} />
         <Route path="/smartwatch" element={<Smartwatch />} />
-        
+        <Route path="/category" element={<Category />} />
+        <Route path="/Contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/category" element={<Category />} />
         <Route path="/SingleProduct/:id" element={<SingleProduct />} />
         <Route path="/product" element={<Products  />} />
       </Routes>

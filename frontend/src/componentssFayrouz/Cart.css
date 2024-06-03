@@ -1,0 +1,100 @@
+.cart-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    width: 100%;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 50px;
+}
+
+.cart-table th, .cart-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.cart-table th {
+    background-color: #ffffff;
+}
+
+.item-details {
+    display: flex;
+    align-items: center;
+}
+
+.item-image {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.item-info {
+    text-align: center;
+}
+
+.quantity-input {
+    width:10px;
+    padding: px;
+    text-align: center;
+}
+
+.delete-button {
+    background-color: #ff4d4d;
+    color: rgb(85, 20, 20);
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #ff3333;
+}
+
+.cart-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.return-button,  .apply-coupon-button, .checkout-button {
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px 50px;
+    cursor: pointer;
+}
+
+.return-button:hover,  .apply-coupon-button:hover, .checkout-button:hover {
+    background-color: #4ea1ce;
+}
+
+.coupon-section {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.coupon-input {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #b83c3c;
+    margin-right: 10px;
+}
+
+.cart-total-section {
+    background-color: #f2f2f2;
+    padding: 50px;
+    border: 5px solid #ddd;
+    margin-left: 1800px;
+}
+
+.cart-total {
+    text-align: right;
+    margin-left: 50px;
+}
+
+.total-price {
+    font-weight: bold;
+}

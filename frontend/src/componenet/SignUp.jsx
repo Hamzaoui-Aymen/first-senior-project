@@ -2,21 +2,24 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './SignUp.css'; 
-
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox'; 
 const SignUp = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [token, setToken] = useState('');
-
+const [role,setRole]=useState('')
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('http://localhost:4000/api/signup', { username, email, password })
+    axios.post('http://localhost:4000/api/post', { username:username, email:email, password:password,role:role })
       .then(response => {
         const { token } = response.data;
-        setToken(token); 
+        setToken(token);  
+        console.log('test=>',response.data);
         console.log('Sign up successful'); 
       })
       .catch(error => {
@@ -28,12 +31,12 @@ const SignUp = () => {
     <>
   
     <div className="signup-container">
-    <img className='img' src="https://img.freepik.com/photos-premium/panier-achat-telephone-portable-vierge-fond-rose-pastel-commerce-electronique-achat-ligne-commerce-ligne-arriere-plan-technologie-journee-magasinage-vendredi-noir-reseau-espace-copie-maquette_146482-2149.jpg" alt="" />
+  
       <form className="signup-form" onSubmit={handleSubmit}>
         <h1>Sign Up</h1>
         <div className="coolinput"></div>
         
-        <label htmlFor="username">Username</label>
+        <label className='user' htmlFor="username">Username</label>
         <input
           id="username"
           type="text"
@@ -43,7 +46,7 @@ const SignUp = () => {
           onChange={(e) => setUsername(e.target.value)}
         />
         
-        <label htmlFor="email">Email Address</label>
+        <label className='email' htmlFor="email">Email Address</label>
         <input
           id="email"
           type="email"
@@ -53,7 +56,7 @@ const SignUp = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
         
-        <label htmlFor="password">Password</label>
+        <label className='pass' htmlFor="password">Password</label>
         <input
           id="password"
           type="password"
@@ -62,8 +65,20 @@ const SignUp = () => {
           className="input"
           onChange={(e) => setPassword(e.target.value)}
         />
+        <input
+          id="password"
+          // type="password"
+          placeholder="Write here..."
+          name="role"
+          className="input"
+          onChange={(e) => setRole(e.target.value)}
+        />
    
-        
+   {/* <FormGroup>
+  <FormControlLabel control={<Checkbox defaultChecked onChange={(e)=>setRole(e.target.value)} />} className='seller'label="Client" />
+  <FormControlLabel control={<Checkbox defaultChecked />} className='seller'label="Seller" />
+ 
+</FormGroup> */}
         <button type="submit">Sign Up</button>
         
         <h5>Already have an account?</h5>

@@ -1,110 +1,88 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-}
-
 .signup-container {
   display: flex;
-  flex-direction: row;
-  max-width: 1000px;
-  background: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.signup-container .img {
-  width: -665%;
-  flex: 1;
-  background-color: #e6f0f5;
-  display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  height: 100%;
-}
-
-.signup-container .img img {
-  width: 100%;
-  max-width: 400px;
-  height: auto;
+  height: 100vh;
+  background-image: url('https://img.freepik.com/photos-premium/panier-achat-telephone-portable-vierge-fond-rose-pastel-commerce-electronique-achat-ligne-commerce-ligne-arriere-plan-technologie-journee-magasinage-vendredi-noir-reseau-espace-copie-maquette_146482-2149.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .signup-form {
-  flex: 1;
+  background-color:rgba(255, 255, 255, 0.8);
   padding: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 400px;
 }
 
 .signup-form h1 {
-  margin-bottom: 10px;
-  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
   color: #333;
 }
 
-.signup-form label {
-  font-size: 0.875rem;
-  margin-bottom: 5px;
-  color: #333;
-}
-
-.signup-form input {
-  padding: 10px;
-  margin-bottom: 20px;
+.input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 100%;
-  max-width: 300px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
 }
 
-.signup-form .checkbox-wrapper-46 {
+.input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.checkbox-container {
   display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
-
-
-.signup-form button {
-  padding: 10px 20px;
-  background-color: #ff4d4f;
-  color: rgb(255, 255, 255);
+button[type="submit"] {
+  background-color: #007bff;
+  color:black;
+  padding: 12px 20px;
   border: none;
-  border-radius: 5px;
-  font-size: 1rem;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  font-size: 16px;
   width: 100%;
-  max-width: 300px;
-  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
-.signup-form button:hover {
-  background-color: #e04343;
+button[type="submit"]:hover {
+  background-color: #0056b3;
 }
 
-.signup-form h5 {
-  font-size: 0.875rem;
-  color: #666;
-  margin-bottom: 10px;
-}
-
-.signup-form .signin-link {
-  font-size: 0.875rem;
+.signin-link {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
   color: #007bff;
   text-decoration: none;
-  cursor: pointer;
 }
 
-.signup-form .signin-link:hover {
+.signin-link:hover {
   text-decoration: underline;
+}
+.user{
+  color: black;
+}
+.email{
+  color: black;
+}
+.pass{
+  color: black;
+}
+h5{
+  color: black;
+}
+.seller{
+  color: black;
 }

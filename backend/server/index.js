@@ -16,7 +16,7 @@ const PORT =4000;
 app.use(express.json());
 app.use(cors());
 
-app.use('/api', route)
+// app.use('/api', route)
 app.use('/apii', route)
 
 app.use('/api', routel)

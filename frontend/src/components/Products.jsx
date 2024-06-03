@@ -3,10 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import SingleProduct from './SingleProduct';
 import Category from '../component/category';
-
+import axios from "axios"
 function Products({ prod=[], switchView, addToCart }) {
   const navigate = useNavigate();
   const sliderRef = useRef(null);
+  const [data,setData]=useState([])
   const [isGridView, setIsGridView] = useState(false);
 
   const scrollLeft = () => {
@@ -20,8 +21,14 @@ function Products({ prod=[], switchView, addToCart }) {
   const handleViewAllProducts = () => {
     setIsGridView(true);
   };
+  const deleteProd=(id)=>{
+axios.delete(`http://localhost:4000/apii/delet/${id}`).then((res)=>setData(res.data)).catch((err)=>console.log(err))
+  }
+
 
   return (
+    <>
+      {/* <img src='https://t3.ftcdn.net/jpg/04/32/74/66/360_F_432746635_Uc663f7rPp2X3VvXJn1Dj4SDhG3MUdUp.jpg'/> */}
     <div className="products-container">
       {!isGridView ? (
         <>
@@ -34,7 +41,7 @@ function Products({ prod=[], switchView, addToCart }) {
                   alt="Product"
                   className="product-image"
                   onClick={() => {navigate(`/SingleProduct/${e.id}`),<SingleProduct prod={e}/>}}
-                />
+                  />
                 <h2 className="product-name">{e.name}</h2>
                 <p className="card-item-price">Price: ${e.price}</p>
                 <div className="product-card-buttons">
@@ -61,7 +68,7 @@ function Products({ prod=[], switchView, addToCart }) {
                 alt="Product"
                 className="product-image"
                 onClick={() => navigate(`/oneProduct/${e.id}`)}
-              />
+                />
               <h2 className="product-name">{e.name}</h2>
               <p className="card-item-price">Price: ${e.price}</p>
               <div className="product-card-buttons">
@@ -72,6 +79,11 @@ function Products({ prod=[], switchView, addToCart }) {
                   }
                 }}>
                   Add to Cart
+                </button>
+              </div>
+              <div className="product-card-buttons">
+                <button onClick={() => deleteProd(e.id)}>
+                  delete Product
                 </button>
               </div>
             </div>
@@ -85,6 +97,7 @@ function Products({ prod=[], switchView, addToCart }) {
       )}
       <div><Category/></div>
     </div>
+      </>
   );
 }
 

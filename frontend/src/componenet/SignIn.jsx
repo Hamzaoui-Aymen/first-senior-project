@@ -7,57 +7,59 @@ const SignIn = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [token, setToken] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('http://localhost:4000/api/signin', { email, password })
+    axios.get('http://localhost:4000/api/getAll', { email, password })
       .then(response => {
         const { token } = response.data;
-        setToken(token); 
-        console.log('Sign in successful'); 
-       
-        navigate('/SignUp');  
+        console.log('Sign in successful');
+        console.log('test',response.data);
+        // localStorage.setItem('token', token); // Store token in localStorage or sessionStorage
+        // navigate('/dashboard'); // Redirect to dashboard or desired route after successful login
       })
       .catch(error => {
-        console.error('Error signing in:', error); 
+        console.error('Error signing in:', error);
+        setError('Sign-in failed. Please try again.');
       });
   };
 
   return (
-    
     <div className="signin-container">
-    <img className='img' src="https://img.freepik.com/photos-premium/panier-achat-telephone-portable-vierge-fond-rose-pastel-commerce-electronique-achat-ligne-commerce-ligne-arriere-plan-technologie-journee-magasinage-vendredi-noir-reseau-espace-copie-maquette_146482-2149.jpg" alt="" />
-      <form className="signin-form" onSubmit={handleSubmit}>
+      <form className="signin-form" onSubmit={()=>{handleSubmit,navigate('/')}}>
         <h1>Sign In</h1>
-        <div className="coolinput"></div>
         
-       
-        
-        <label htmlFor="email">Email Address</label>
+        <label className='adress'htmlFor="email">Email Address</label>
         <input
           id="email"
           type="email"
-          placeholder="Write here..."
+          placeholder="Enter your email"
           name="email"
           className="input"
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
         
-        <label htmlFor="password">Password</label>
+        <label className='passw'htmlFor="password">Password</label>
         <input
           id="password"
           type="password"
-          placeholder="Write here..."
+          placeholder="Enter your password"
           name="password"
           className="input"
+          value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
-
-        <button type="submit">Sign In</button>
-        <h5>Already have an account?</h5>
-        <a className="signin-link" onClick={() => navigate('/SignUp ')}>Sign Up</a>
+        
+        {error && <p className="error-message">{error}</p>}
+        
+        <button type="submit" >Sign In</button>
+        <h5>Don't have an account?</h5>
+        <a className="signup-link" onClick={() => navigate('/signup')}>Sign Up</a>
       </form>
     </div>
   );
